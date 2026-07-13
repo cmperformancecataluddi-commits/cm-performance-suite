@@ -1,0 +1,842 @@
+/* ==========================================================================
+   CM Performance Suite
+   Admin Dashboard
+   Enterprise Design System
+   Version: 1.1.0-beta.1
+   ========================================================================== */
+
+/* ==========================================================================
+   Design System
+   ========================================================================== */
+
+:root{
+
+	/* Brand */
+
+	--cmps-primary:#d61f26;
+	--cmps-primary-dark:#b91c1c;
+
+	/* Colors */
+
+	--cmps-dark:#1f2937;
+	--cmps-dark-light:#374151;
+
+	--cmps-success:#16a34a;
+	--cmps-warning:#f59e0b;
+	--cmps-danger:#dc2626;
+	--cmps-info:#2563eb;
+
+	/* Background */
+
+	--cmps-background:#f3f4f6;
+	--cmps-surface:#ffffff;
+
+	/* Border */
+
+	--cmps-border:#e5e7eb;
+
+	/* Text */
+
+	--cmps-text:#1f2937;
+	--cmps-text-light:#6b7280;
+
+	/* Radius */
+
+	--cmps-radius-sm:8px;
+	--cmps-radius-md:14px;
+	--cmps-radius-lg:20px;
+	--cmps-radius-pill:999px;
+
+	/* Shadows */
+
+	--cmps-shadow-sm:0 4px 12px rgba(0,0,0,.05);
+	--cmps-shadow-md:0 8px 22px rgba(0,0,0,.08);
+	--cmps-shadow-lg:0 18px 40px rgba(0,0,0,.15);
+
+	/* Transition */
+
+	--cmps-transition:all .25s ease;
+
+}
+
+/* ==========================================================================
+   Global Layout
+   ========================================================================== */
+
+*,
+*::before,
+*::after{
+
+	box-sizing:border-box;
+
+}
+
+.cmps-dashboard{
+
+	margin:24px 20px 20px 0;
+
+	color:var(--cmps-text);
+
+	font-size:14px;
+
+	line-height:1.6;
+
+}
+
+.cmps-dashboard h1,
+.cmps-dashboard h2,
+.cmps-dashboard h3,
+.cmps-dashboard h4{
+
+	margin:0;
+
+	font-weight:700;
+
+	color:var(--cmps-dark);
+
+}
+
+.cmps-dashboard p{
+
+	margin:0;
+
+	color:var(--cmps-text-light);
+
+}
+
+.cmps-section{
+
+	margin-top:40px;
+
+}
+
+.cmps-section-title{
+
+	margin:0 0 20px;
+
+	font-size:24px;
+
+	font-weight:700;
+
+	color:var(--cmps-dark);
+
+}
+/* ==========================================================================
+   Header Enterprise
+   ========================================================================== */
+
+.cmps-header{
+
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	gap:32px;
+
+	padding:32px;
+
+	margin-bottom:32px;
+
+	border-radius:var(--cmps-radius-lg);
+
+	background:linear-gradient(
+		135deg,
+		#1f2937 0%,
+		#d61f26 100%
+	);
+
+	box-shadow:var(--cmps-shadow-lg);
+
+	color:#ffffff;
+
+}
+
+.cmps-header__brand{
+
+	display:flex;
+	align-items:center;
+	gap:20px;
+
+}
+
+.cmps-header__logo{
+
+	display:flex;
+	align-items:center;
+	justify-content:center;
+
+	width:72px;
+	height:72px;
+
+	border-radius:18px;
+
+	background:rgba(255,255,255,.12);
+
+	backdrop-filter:blur(10px);
+
+	flex-shrink:0;
+
+}
+
+.cmps-header__logo .dashicons{
+
+	font-size:34px;
+
+	width:34px;
+	height:34px;
+
+	color:#ffffff;
+
+}
+
+.cmps-header__content{
+
+	display:flex;
+	flex-direction:column;
+
+}
+
+.cmps-header__kicker{
+
+	margin-bottom:6px;
+
+	font-size:12px;
+
+	font-weight:700;
+
+	letter-spacing:1.5px;
+
+	text-transform:uppercase;
+
+	color:rgba(255,255,255,.70);
+
+}
+
+.cmps-header__title{
+
+	margin:0;
+
+	font-size:34px;
+
+	line-height:1.2;
+
+	font-weight:700;
+
+	color:#ffffff !important;
+
+}
+
+.cmps-header__description{
+
+	margin-top:8px;
+
+	font-size:15px;
+
+	line-height:1.6;
+
+	color:rgba(255,255,255,.90) !important;
+
+}
+
+.cmps-header__meta{
+
+	display:flex;
+	align-items:center;
+	gap:18px;
+
+}
+
+.cmps-header__version{
+
+	display:flex;
+	flex-direction:column;
+	align-items:flex-end;
+
+}
+
+.cmps-header__version-label{
+
+	font-size:11px;
+
+	font-weight:600;
+
+	text-transform:uppercase;
+
+	letter-spacing:1px;
+
+	color:rgba(255,255,255,.70);
+
+}
+
+.cmps-version{
+
+	margin-top:4px;
+
+	font-size:22px;
+
+	font-weight:700;
+
+	color:#ffffff;
+
+}
+
+.cmps-badge{
+
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+
+	padding:6px 14px;
+
+	border-radius:999px;
+
+	font-size:12px;
+
+	font-weight:700;
+
+	text-transform:uppercase;
+
+	letter-spacing:.5px;
+
+}
+
+.cmps-badge--beta{
+
+	background:#f59e0b;
+
+	color:#ffffff;
+
+}
+/* ==========================================================================
+   Hero Dashboard
+   ========================================================================== */
+
+.cmps-hero{
+
+	margin-bottom:32px;
+
+	padding:32px;
+
+	border-radius:var(--cmps-radius-lg);
+
+	background:var(--cmps-surface);
+
+	box-shadow:var(--cmps-shadow-md);
+
+	border:1px solid var(--cmps-border);
+
+}
+
+.cmps-hero__content{
+
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	gap:40px;
+
+}
+
+.cmps-hero__text{
+
+	flex:1;
+
+}
+
+.cmps-hero__kicker{
+
+	display:inline-block;
+
+	margin-bottom:10px;
+
+	font-size:12px;
+
+	font-weight:700;
+
+	letter-spacing:1.4px;
+
+	text-transform:uppercase;
+
+	color:var(--cmps-primary);
+
+}
+
+.cmps-hero__text h2{
+
+	margin:0 0 14px;
+
+	font-size:34px;
+
+	font-weight:700;
+
+	color:var(--cmps-dark);
+
+}
+
+.cmps-hero__text p{
+
+	max-width:620px;
+
+	font-size:16px;
+
+	line-height:1.8;
+
+	color:var(--cmps-text-light);
+
+}
+
+.cmps-hero__stats{
+
+	display:grid;
+
+	grid-template-columns:repeat(2,minmax(140px,1fr));
+
+	gap:18px;
+
+	min-width:340px;
+
+}
+
+.cmps-hero-stat{
+
+	padding:20px;
+
+	border-radius:var(--cmps-radius-md);
+
+	background:var(--cmps-background);
+
+	text-align:center;
+
+	border:1px solid var(--cmps-border);
+
+	transition:var(--cmps-transition);
+
+}
+
+.cmps-hero-stat:hover{
+
+	transform:translateY(-3px);
+
+	box-shadow:var(--cmps-shadow-sm);
+
+}
+
+.cmps-hero-stat__value{
+
+	display:block;
+
+	margin-bottom:8px;
+
+	font-size:28px;
+
+	font-weight:700;
+
+	color:var(--cmps-dark);
+
+}
+
+.cmps-hero-stat__label{
+
+	font-size:13px;
+
+	font-weight:600;
+
+	color:var(--cmps-text-light);
+
+	text-transform:uppercase;
+
+	letter-spacing:.5px;
+
+}
+/* ==========================================================================
+   Enterprise Cards
+   ========================================================================== */
+
+.cmps-grid{
+
+	display:grid;
+
+	grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+	gap:24px;
+
+	margin-bottom:40px;
+
+}
+
+.cmps-card{
+
+	display:flex;
+	flex-direction:column;
+
+	padding:24px;
+
+	border-radius:18px;
+
+	background:var(--cmps-surface);
+
+	border:1px solid var(--cmps-border);
+
+	box-shadow:var(--cmps-shadow-sm);
+
+	transition:var(--cmps-transition);
+
+}
+
+.cmps-card:hover{
+
+	transform:translateY(-4px);
+
+	box-shadow:var(--cmps-shadow-md);
+
+}
+
+.cmps-card__icon{
+
+	font-size:34px;
+
+	margin-bottom:16px;
+
+	line-height:1;
+
+}
+
+.cmps-card__title{
+
+	font-size:13px;
+
+	font-weight:700;
+
+	text-transform:uppercase;
+
+	letter-spacing:1px;
+
+	color:var(--cmps-text-light);
+
+	margin-bottom:12px;
+
+}
+
+.cmps-card__value{
+
+	font-size:38px;
+
+	font-weight:700;
+
+	line-height:1.15;
+
+	color:var(--cmps-dark);
+
+	margin-bottom:20px;
+
+	word-break:break-word;
+
+}
+
+.cmps-card__status{
+
+	margin-top:auto;
+
+}
+
+.cmps-badge{
+
+	display:inline-flex;
+
+	align-items:center;
+
+	justify-content:center;
+
+	padding:7px 14px;
+
+	border-radius:999px;
+
+	font-size:12px;
+
+	font-weight:700;
+
+	text-transform:uppercase;
+
+	letter-spacing:.5px;
+
+	color:#fff;
+
+}
+
+.cmps-badge--success{
+
+	background:var(--cmps-success);
+
+}
+
+.cmps-badge--warning{
+
+	background:var(--cmps-warning);
+
+}
+
+.cmps-badge--danger{
+
+	background:var(--cmps-danger);
+
+}
+
+.cmps-badge--info{
+
+	background:var(--cmps-info);
+
+}
+
+.cmps-badge--beta{
+
+	background:var(--cmps-warning);
+
+}
+/* ==========================================================================
+   Module Manager Enterprise
+   ========================================================================== */
+
+.cmps-section__header{
+
+	display:flex;
+	align-items:flex-start;
+	justify-content:space-between;
+	gap:24px;
+
+	margin-bottom:22px;
+
+}
+
+.cmps-section__kicker{
+
+	display:block;
+
+	margin-bottom:6px;
+
+	font-size:12px;
+
+	font-weight:700;
+
+	text-transform:uppercase;
+
+	letter-spacing:1.4px;
+
+	color:var(--cmps-primary);
+
+}
+
+.cmps-section__title{
+
+	font-size:26px;
+
+	line-height:1.2;
+
+	color:var(--cmps-dark);
+
+}
+
+.cmps-section__description{
+
+	margin-top:8px !important;
+
+	font-size:15px;
+
+}
+
+.cmps-modules{
+
+	display:grid;
+
+	gap:18px;
+
+}
+
+.cmps-module{
+
+	display:flex;
+	align-items:flex-start;
+	gap:20px;
+
+	padding:22px;
+
+	border:1px solid var(--cmps-border);
+
+	border-left:5px solid var(--cmps-border);
+
+	border-radius:var(--cmps-radius-md);
+
+	background:var(--cmps-surface);
+
+	box-shadow:var(--cmps-shadow-sm);
+
+	transition:var(--cmps-transition);
+
+}
+
+.cmps-module:hover{
+
+	transform:translateY(-3px);
+
+	box-shadow:var(--cmps-shadow-md);
+
+}
+
+.cmps-module--active{
+
+	border-left-color:var(--cmps-success);
+
+}
+
+.cmps-module--inactive{
+
+	border-left-color:var(--cmps-text-light);
+
+	opacity:.82;
+
+}
+
+.cmps-module__icon{
+
+	display:flex;
+	align-items:center;
+	justify-content:center;
+
+	width:52px;
+	height:52px;
+
+	flex-shrink:0;
+
+	border-radius:14px;
+
+	background:var(--cmps-background);
+
+	color:var(--cmps-primary);
+
+}
+
+.cmps-module__icon .dashicons{
+
+	width:26px;
+	height:26px;
+
+	font-size:26px;
+
+}
+
+.cmps-module__content{
+
+	flex:1;
+
+	min-width:0;
+
+}
+
+.cmps-module__heading{
+
+	display:flex;
+	align-items:flex-start;
+	justify-content:space-between;
+	gap:20px;
+
+}
+
+.cmps-module__name{
+
+	font-size:19px;
+
+	line-height:1.3;
+
+	color:var(--cmps-dark);
+
+}
+
+.cmps-module__badges{
+
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:flex-end;
+	gap:8px;
+
+}
+
+.cmps-module__description{
+
+	margin-top:10px !important;
+
+	font-size:15px;
+
+	line-height:1.7;
+
+}
+
+.cmps-module__footer{
+
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	gap:18px;
+
+	margin-top:18px;
+
+	padding-top:16px;
+
+	border-top:1px solid var(--cmps-border);
+
+	font-size:13px;
+
+	color:var(--cmps-text-light);
+
+}
+
+.cmps-module__version{
+
+	font-weight:600;
+
+}
+
+.cmps-module__state{
+
+	font-weight:700;
+
+}
+
+.cmps-badge--neutral{
+
+	background:#6b7280;
+
+	color:#fff;
+
+}
+
+.cmps-empty-state{
+
+	padding:42px;
+
+	text-align:center;
+
+	border:1px dashed var(--cmps-border);
+
+	border-radius:var(--cmps-radius-md);
+
+	background:var(--cmps-surface);
+
+}
+
+.cmps-empty-state .dashicons{
+
+	width:40px;
+	height:40px;
+
+	margin-bottom:14px;
+
+	font-size:40px;
+
+	color:var(--cmps-text-light);
+
+}
+
+.cmps-empty-state h3{
+
+	margin-bottom:8px;
+
+	font-size:20px;
+
+}

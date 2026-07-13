@@ -1,0 +1,15 @@
+{
+    "name": "cmperformance/cm-performance-suite",
+    "description": "CM Performance Suite",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "CMPerformanceSuite\\": "includes/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}
