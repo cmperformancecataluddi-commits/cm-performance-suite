@@ -20,6 +20,8 @@ return array(
     'CMPerformanceSuite\\Application\\Engine\\Analyzer_Manager' => $baseDir . '/includes/Application/Engine/Analyzer_Manager.php',
     'CMPerformanceSuite\\Application\\Engine\\Collector_Manager' => $baseDir . '/includes/Application/Engine/Collector_Manager.php',
     'CMPerformanceSuite\\Application\\Engine\\Core_Engine' => $baseDir . '/includes/Application/Engine/Core_Engine.php',
+    'CMPerformanceSuite\\Application\\Engine\\Recommendation_Manager' => $baseDir . '/includes/Application/Engine/Recommendation_Manager.php',
+    'CMPerformanceSuite\\Application\\Engine\\Report_Builder' => $baseDir . '/includes/Application/Engine/Report_Builder.php',
     'CMPerformanceSuite\\Application\\Engine\\Score_Calculator' => $baseDir . '/includes/Application/Engine/Score_Calculator.php',
     'CMPerformanceSuite\\Application\\Engine\\Score_Manager' => $baseDir . '/includes/Application/Engine/Score_Manager.php',
     'CMPerformanceSuite\\Application\\Engine\\Threshold_Manager' => $baseDir . '/includes/Application/Engine/Threshold_Manager.php',

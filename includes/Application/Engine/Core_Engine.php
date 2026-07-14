@@ -26,6 +26,13 @@ final class Core_Engine
 	private Analyzer_Manager $analyzer_manager;
 
 	/**
+	 * Manager delle raccomandazioni.
+	 *
+	 * @var Recommendation_Manager
+	 */
+	private Recommendation_Manager $recommendation_manager;
+
+	/**
 	 * Calcolatore dello score.
 	 *
 	 * @var Score_Calculator
@@ -37,8 +44,9 @@ final class Core_Engine
 	 */
 	public function __construct()
 	{
-		$this->analyzer_manager = new Analyzer_Manager();
-		$this->score_calculator = new Score_Calculator();
+		$this->analyzer_manager       = new Analyzer_Manager();
+		$this->recommendation_manager = new Recommendation_Manager();
+		$this->score_calculator       = new Score_Calculator();
 	}
 
 	/**
@@ -76,16 +84,17 @@ final class Core_Engine
 		$results = $this->analyzer_manager->analyze( $data );
 
 		foreach ( $results as $result ) {
-
 			$report->add_result( $result );
+		}
 
-			if ( $result->has_recommendation() ) {
+		foreach (
+			$this->recommendation_manager->collect( $results )
+			as $recommendation
+		) {
 
-				$report->add_recommendation(
-					(string) $result->recommendation()
-				);
-
-			}
+			$report->add_recommendation(
+				$recommendation
+			);
 
 		}
 

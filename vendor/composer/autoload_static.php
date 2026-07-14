@@ -35,6 +35,8 @@ class ComposerStaticInite9772be36883ba0fed87ba7c77c7b72d
         'CMPerformanceSuite\\Application\\Engine\\Analyzer_Manager' => __DIR__ . '/../..' . '/includes/Application/Engine/Analyzer_Manager.php',
         'CMPerformanceSuite\\Application\\Engine\\Collector_Manager' => __DIR__ . '/../..' . '/includes/Application/Engine/Collector_Manager.php',
         'CMPerformanceSuite\\Application\\Engine\\Core_Engine' => __DIR__ . '/../..' . '/includes/Application/Engine/Core_Engine.php',
+        'CMPerformanceSuite\\Application\\Engine\\Recommendation_Manager' => __DIR__ . '/../..' . '/includes/Application/Engine/Recommendation_Manager.php',
+        'CMPerformanceSuite\\Application\\Engine\\Report_Builder' => __DIR__ . '/../..' . '/includes/Application/Engine/Report_Builder.php',
         'CMPerformanceSuite\\Application\\Engine\\Score_Calculator' => __DIR__ . '/../..' . '/includes/Application/Engine/Score_Calculator.php',
         'CMPerformanceSuite\\Application\\Engine\\Score_Manager' => __DIR__ . '/../..' . '/includes/Application/Engine/Score_Manager.php',
         'CMPerformanceSuite\\Application\\Engine\\Threshold_Manager' => __DIR__ . '/../..' . '/includes/Application/Engine/Threshold_Manager.php',
