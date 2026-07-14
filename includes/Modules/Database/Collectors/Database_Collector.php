@@ -32,12 +32,12 @@ final class Database_Collector implements Collector_Interface
 			$tables = array();
 		}
 
-		$total_size       = 0;
-		$total_data       = 0;
-		$total_indexes    = 0;
-		$total_overhead   = 0;
-		$total_rows       = 0;
-		$engines          = array();
+		$total_size        = 0;
+		$total_data        = 0;
+		$total_indexes     = 0;
+		$total_overhead    = 0;
+		$total_rows        = 0;
+		$engines           = array();
 		$normalized_tables = array();
 
 		foreach ( $tables as $table ) {
@@ -82,6 +82,21 @@ final class Database_Collector implements Collector_Interface
 			$main_engine = (string) array_key_first( $engines );
 		}
 
+		$database_server = (string) $wpdb->db_server_info();
+
+		$database_type = str_contains(
+			strtolower( $database_server ),
+			'mariadb'
+		)
+			? 'MariaDB'
+			: 'MySQL';
+
+		$average_table_size = count( $normalized_tables ) > 0
+			? (int) round(
+				$total_size / count( $normalized_tables )
+			)
+			: 0;
+
 		$revision_count = (int) $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT COUNT(ID)
@@ -104,10 +119,16 @@ final class Database_Collector implements Collector_Interface
 			WHERE autoload IN ('yes', 'on', 'auto-on', 'auto')"
 		);
 
-		$cron_option = get_option( 'cron', array() );
+		$autoload_count = (int) $wpdb->get_var(
+			"SELECT COUNT(*)
+			FROM {$wpdb->options}
+			WHERE autoload IN ('yes', 'on', 'auto-on', 'auto')"
+		);
+				$cron_option = get_option( 'cron', array() );
 		$cron_events = 0;
 
 		if ( is_array( $cron_option ) ) {
+
 			foreach ( $cron_option as $timestamp => $hooks ) {
 
 				if ( 'version' === $timestamp || ! is_array( $hooks ) ) {
@@ -115,9 +136,11 @@ final class Database_Collector implements Collector_Interface
 				}
 
 				foreach ( $hooks as $events ) {
+
 					if ( is_array( $events ) ) {
 						$cron_events += count( $events );
 					}
+
 				}
 			}
 		}
@@ -125,12 +148,12 @@ final class Database_Collector implements Collector_Interface
 		$woocommerce_active = class_exists( 'WooCommerce' );
 
 		$woocommerce = array(
-			'active'            => $woocommerce_active,
-			'sessions'          => 0,
-			'pending_actions'   => 0,
-			'failed_actions'    => 0,
-			'pending_orders'    => 0,
-			'failed_orders'     => 0,
+			'active'          => $woocommerce_active,
+			'sessions'        => 0,
+			'pending_actions' => 0,
+			'failed_actions'  => 0,
+			'pending_orders'  => 0,
+			'failed_orders'   => 0,
 		);
 
 		if ( $woocommerce_active ) {
@@ -138,10 +161,12 @@ final class Database_Collector implements Collector_Interface
 			$sessions_table = $wpdb->prefix . 'woocommerce_sessions';
 
 			if ( $this->table_exists( $sessions_table ) ) {
+
 				$woocommerce['sessions'] = (int) $wpdb->get_var(
 					"SELECT COUNT(*)
 					FROM `{$sessions_table}`"
 				);
+
 			}
 
 			$actions_table = $wpdb->prefix . 'actionscheduler_actions';
@@ -159,6 +184,7 @@ final class Database_Collector implements Collector_Interface
 					FROM `{$actions_table}`
 					WHERE status = 'failed'"
 				);
+
 			}
 
 			$woocommerce['pending_orders'] = $this->count_orders_by_status(
@@ -168,37 +194,48 @@ final class Database_Collector implements Collector_Interface
 			$woocommerce['failed_orders'] = $this->count_orders_by_status(
 				'wc-failed'
 			);
+
 		}
 
 		return array(
+
 			'database' => array(
-				'name'           => (string) $wpdb->dbname,
-				'tables'         => count( $normalized_tables ),
-				'rows'           => $total_rows,
-				'size'           => $total_size,
-				'data_size'      => $total_data,
-				'index_size'     => $total_indexes,
-				'overhead'       => $total_overhead,
-				'charset'        => (string) $wpdb->charset,
-				'collation'      => (string) $wpdb->collate,
-				'main_engine'    => $main_engine,
-				'engine_counts'  => $engines,
+
+				'name'               => (string) $wpdb->dbname,
+				'server_version'     => (string) $wpdb->db_version(),
+				'database_type'      => $database_type,
+				'tables'             => count( $normalized_tables ),
+				'rows'               => $total_rows,
+				'size'               => $total_size,
+				'data_size'          => $total_data,
+				'index_size'         => $total_indexes,
+				'overhead'           => $total_overhead,
+				'average_table_size' => $average_table_size,
+				'charset'            => (string) $wpdb->charset,
+				'collation'          => (string) $wpdb->collate,
+				'main_engine'        => $main_engine,
+				'engine_counts'      => $engines,
+
 			),
 
 			'tables' => $normalized_tables,
 
 			'wordpress' => array(
+
 				'revisions'      => $revision_count,
 				'transients'     => $transient_count,
+				'autoload_count' => $autoload_count,
 				'autoload_size'  => $autoload_size,
 				'cron_events'    => $cron_events,
+
 			),
 
 			'woocommerce' => $woocommerce,
-		);
-	}
 
-	/**
+		);
+
+	}
+		/**
 	 * Verifica se una tabella esiste.
 	 *
 	 * @param string $table_name Nome della tabella.
@@ -219,12 +256,13 @@ final class Database_Collector implements Collector_Interface
 		);
 
 		return $table_name === $result;
+
 	}
 
 	/**
 	 * Conta gli ordini WooCommerce per stato.
 	 *
-	 * Supporta sia la struttura classica sia HPOS.
+	 * Compatibile sia con HPOS sia con la struttura classica.
 	 *
 	 * @param string $status Stato dell'ordine.
 	 *
@@ -248,6 +286,7 @@ final class Database_Collector implements Collector_Interface
 					$status
 				)
 			);
+
 		}
 
 		return (int) $wpdb->get_var(
@@ -259,5 +298,6 @@ final class Database_Collector implements Collector_Interface
 				$status
 			)
 		);
+
 	}
 }

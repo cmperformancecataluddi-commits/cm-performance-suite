@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace CMPerformanceSuite\Modules\Database;
 
 use CMPerformanceSuite\Contracts\Analyzer_Interface;
+use CMPerformanceSuite\Modules\Database\Analyzers\Autoload_Analyzer;
 use CMPerformanceSuite\Modules\Database\Analyzers\Database_Size_Analyzer;
+use CMPerformanceSuite\Modules\Database\Analyzers\Engine_Analyzer;
 use CMPerformanceSuite\Modules\Database\Analyzers\Tables_Analyzer;
 
 /**
@@ -28,6 +30,10 @@ final class Analyzer_Registry
 			new Database_Size_Analyzer(),
 
 			new Tables_Analyzer(),
+
+			new Engine_Analyzer(),
+
+			new Autoload_Analyzer(),
 
 		);
 	}

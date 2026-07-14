@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace CMPerformanceSuite\Modules\Database\Analyzers;
 
+use CMPerformanceSuite\Application\DTO\Analysis_Result;
 use CMPerformanceSuite\Application\Enums\Status;
 use CMPerformanceSuite\Contracts\Analyzer_Interface;
-use CMPerformanceSuite\Application\DTO\Analysis_Result;
 
 /**
  * Analyzer della dimensione del database.
@@ -14,7 +14,7 @@ use CMPerformanceSuite\Application\DTO\Analysis_Result;
  * @package CMPerformanceSuite
  * @since 1.1.0-alpha.5
  */
-final class Database_Size_Analyzer implements Analyzer_Interface
+final class Database_Size_Analyzer extends Abstract_Analyzer implements Analyzer_Interface
 {
 	/**
 	 * Analizza la dimensione del database.
@@ -33,11 +33,12 @@ final class Database_Size_Analyzer implements Analyzer_Interface
 
 		$status = Status::SUCCESS;
 		$score  = 100;
+
 		$recommendation = '';
 
 		/*
 		 * Soglie iniziali.
-		 * Verranno spostate nel Threshold_Manager.
+		 * Verranno spostate in Database_Thresholds.
 		 */
 
 		if ( $size >= 1024 * 1024 * 1024 ) {
@@ -58,7 +59,7 @@ final class Database_Size_Analyzer implements Analyzer_Interface
 
 		}
 
-		return new Analysis_Result(
+		return $this->result(
 
 			label: 'Database Size',
 
@@ -68,10 +69,11 @@ final class Database_Size_Analyzer implements Analyzer_Interface
 
 			score: $score,
 
-			description: 'Dimensione complessiva del database.',
+			description: 'Dimensione complessiva delle tabelle e degli indici del database.',
 
 			recommendation: $recommendation
 
 		);
+
 	}
 }

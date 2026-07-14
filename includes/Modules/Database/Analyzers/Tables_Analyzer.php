@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace CMPerformanceSuite\Modules\Database\Analyzers;
 
+use CMPerformanceSuite\Application\DTO\Analysis_Result;
 use CMPerformanceSuite\Application\Enums\Status;
 use CMPerformanceSuite\Contracts\Analyzer_Interface;
-use CMPerformanceSuite\Application\DTO\Analysis_Result;
 
 /**
  * Analyzer delle tabelle del database.
@@ -14,10 +14,10 @@ use CMPerformanceSuite\Application\DTO\Analysis_Result;
  * @package CMPerformanceSuite
  * @since 1.1.0-alpha.5
  */
-final class Tables_Analyzer implements Analyzer_Interface
+final class Tables_Analyzer extends Abstract_Analyzer implements Analyzer_Interface
 {
 	/**
-	 * Analizza le tabelle del database.
+	 * Analizza il numero di tabelle del database.
 	 *
 	 * @param array<string,mixed> $data
 	 *
@@ -31,30 +31,23 @@ final class Tables_Analyzer implements Analyzer_Interface
 
 		$total_tables = (int) ( $database['tables'] ?? 0 );
 
-		$engines = $database['engine_counts'] ?? array();
-
-		$myisam = (int) ( $engines['MyISAM'] ?? 0 );
-
 		$status = Status::SUCCESS;
-		$score = 100;
+		$score  = 100;
 
 		$recommendation = '';
 
-		if ( $myisam > 0 ) {
+		if ( $total_tables > 500 ) {
 
 			$status = Status::WARNING;
 
 			$score = 80;
 
 			$recommendation =
-				sprintf(
-					'%d tabelle utilizzano ancora MyISAM. Valuta la migrazione a InnoDB.',
-					$myisam
-				);
+				'Il database contiene un numero elevato di tabelle. Verifica la presenza di plugin non più utilizzati o di tabelle obsolete.';
 
 		}
 
-		return new Analysis_Result(
+		return $this->result(
 
 			label: 'Database Tables',
 
