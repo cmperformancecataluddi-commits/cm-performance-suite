@@ -32,6 +32,7 @@ class ComposerStaticInite9772be36883ba0fed87ba7c77c7b72d
         'CMPerformanceSuite\\Application\\Database\\Database' => __DIR__ . '/../..' . '/includes/Application/Database/Database.php',
         'CMPerformanceSuite\\Application\\Database\\Database_Manager' => __DIR__ . '/../..' . '/includes/Application/Database/Database_Manager.php',
         'CMPerformanceSuite\\Application\\Database\\Repository' => __DIR__ . '/../..' . '/includes/Application/Database/Repository.php',
+        'CMPerformanceSuite\\Application\\Engine\\Analyzer_Manager' => __DIR__ . '/../..' . '/includes/Application/Engine/Analyzer_Manager.php',
         'CMPerformanceSuite\\Application\\Engine\\Collector_Manager' => __DIR__ . '/../..' . '/includes/Application/Engine/Collector_Manager.php',
         'CMPerformanceSuite\\Application\\Engine\\Core_Engine' => __DIR__ . '/../..' . '/includes/Application/Engine/Core_Engine.php',
         'CMPerformanceSuite\\Application\\Engine\\Score_Calculator' => __DIR__ . '/../..' . '/includes/Application/Engine/Score_Calculator.php',

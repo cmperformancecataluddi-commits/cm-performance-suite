@@ -19,11 +19,11 @@ use CMPerformanceSuite\Modules\Performance\DTO\Performance_Report;
 final class Core_Engine
 {
 	/**
-	 * Analyzer registrati.
+	 * Manager degli Analyzer.
 	 *
-	 * @var array<int,Analyzer_Interface>
+	 * @var Analyzer_Manager
 	 */
-	private array $analyzers = array();
+	private Analyzer_Manager $analyzer_manager;
 
 	/**
 	 * Calcolatore dello score.
@@ -37,6 +37,7 @@ final class Core_Engine
 	 */
 	public function __construct()
 	{
+		$this->analyzer_manager = new Analyzer_Manager();
 		$this->score_calculator = new Score_Calculator();
 	}
 
@@ -51,7 +52,7 @@ final class Core_Engine
 		Analyzer_Interface $analyzer
 	): self {
 
-		$this->analyzers[] = $analyzer;
+		$this->analyzer_manager->add( $analyzer );
 
 		return $this;
 
@@ -72,9 +73,9 @@ final class Core_Engine
 
 		$report = new Performance_Report();
 
-		foreach ( $this->analyzers as $analyzer ) {
+		$results = $this->analyzer_manager->analyze( $data );
 
-			$result = $analyzer->analyze( $data );
+		foreach ( $results as $result ) {
 
 			$report->add_result( $result );
 

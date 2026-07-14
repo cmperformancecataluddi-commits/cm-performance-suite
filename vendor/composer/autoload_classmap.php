@@ -17,6 +17,7 @@ return array(
     'CMPerformanceSuite\\Application\\Database\\Database' => $baseDir . '/includes/Application/Database/Database.php',
     'CMPerformanceSuite\\Application\\Database\\Database_Manager' => $baseDir . '/includes/Application/Database/Database_Manager.php',
     'CMPerformanceSuite\\Application\\Database\\Repository' => $baseDir . '/includes/Application/Database/Repository.php',
+    'CMPerformanceSuite\\Application\\Engine\\Analyzer_Manager' => $baseDir . '/includes/Application/Engine/Analyzer_Manager.php',
     'CMPerformanceSuite\\Application\\Engine\\Collector_Manager' => $baseDir . '/includes/Application/Engine/Collector_Manager.php',
     'CMPerformanceSuite\\Application\\Engine\\Core_Engine' => $baseDir . '/includes/Application/Engine/Core_Engine.php',
     'CMPerformanceSuite\\Application\\Engine\\Score_Calculator' => $baseDir . '/includes/Application/Engine/Score_Calculator.php',
