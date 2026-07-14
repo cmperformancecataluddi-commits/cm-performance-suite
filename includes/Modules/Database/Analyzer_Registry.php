@@ -8,7 +8,11 @@ use CMPerformanceSuite\Contracts\Analyzer_Interface;
 use CMPerformanceSuite\Modules\Database\Analyzers\Autoload_Analyzer;
 use CMPerformanceSuite\Modules\Database\Analyzers\Database_Size_Analyzer;
 use CMPerformanceSuite\Modules\Database\Analyzers\Engine_Analyzer;
+use CMPerformanceSuite\Modules\Database\Analyzers\Overhead_Analyzer;
+use CMPerformanceSuite\Modules\Database\Analyzers\Revision_Analyzer;
 use CMPerformanceSuite\Modules\Database\Analyzers\Tables_Analyzer;
+use CMPerformanceSuite\Modules\Database\Analyzers\Transient_Analyzer;
+use CMPerformanceSuite\Modules\Database\Analyzers\WooCommerce_Analyzer;
 
 /**
  * Registry degli Analyzer del modulo Database.
@@ -34,6 +38,14 @@ final class Analyzer_Registry
 			new Engine_Analyzer(),
 
 			new Autoload_Analyzer(),
+
+			new Revision_Analyzer(),
+
+			new Transient_Analyzer(),
+
+			new Overhead_Analyzer(),
+
+			new WooCommerce_Analyzer(),
 
 		);
 	}
