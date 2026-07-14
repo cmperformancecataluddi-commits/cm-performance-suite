@@ -3,7 +3,7 @@
  * Plugin Name: CM Performance Suite
  * Plugin URI: https://www.cmperformancesrls.it
  * Description: Core modulare della CM Performance Suite.
- * Version: 1.0.0-alpha.4
+ * Version: 1.1.0-alpha.3
  * Requires at least: 6.8
  * Requires PHP: 8.2
  * Author: Mirko Cataluddi
@@ -17,7 +17,7 @@
 
 declare(strict_types=1);
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +25,10 @@ defined('ABSPATH') || exit;
 |--------------------------------------------------------------------------
 */
 
-define('CMPS_VERSION', '1.0.0-alpha.4');
-define('CMPS_FILE', __FILE__);
-define('CMPS_PATH', plugin_dir_path(__FILE__));
-define('CMPS_URL', plugin_dir_url(__FILE__));
+define( 'CMPS_VERSION', '1.1.0-alpha.3' );
+define( 'CMPS_FILE', __FILE__ );
+define( 'CMPS_PATH', plugin_dir_path( __FILE__ ) );
+define( 'CMPS_URL', plugin_dir_url( __FILE__ ) );
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +37,20 @@ define('CMPS_URL', plugin_dir_url(__FILE__));
 */
 
 require CMPS_PATH . 'vendor/autoload.php';
+
+/*
+|--------------------------------------------------------------------------
+| Activation Hook
+|--------------------------------------------------------------------------
+*/
+
+register_activation_hook(
+	CMPS_FILE,
+	array(
+		\CMPerformanceSuite\Bootstrap\Activator::class,
+		'activate',
+	)
+);
 
 /*
 |--------------------------------------------------------------------------

@@ -39,8 +39,9 @@ final class View
 		if ( ! file_exists( $file ) ) {
 			throw new RuntimeException(
 				sprintf(
-					'View "%s" non trovata.',
-					$view
+					'View "%s" non trovata. Percorso cercato: %s',
+					$view,
+					$file
 				)
 			);
 		}

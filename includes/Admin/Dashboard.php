@@ -28,10 +28,12 @@ final class Dashboard
 		View::render(
 			'admin/dashboard',
 			array(
-				'wordpress'    => $status['wordpress'],
-				'php'          => $status['php'],
-				'woocommerce'  => $status['woocommerce'],
-				'server'       => $status['server'],
+				'status'       => $status,
+				'wordpress'    => $status['wordpress'] ?? array(),
+				'php'          => $status['php'] ?? array(),
+				'woocommerce'  => $status['woocommerce'] ?? array(),
+				'server'       => $status['server'] ?? array(),
+				'database'     => $status['database'] ?? array(),
 				'modules'      => Module_Manager::all(),
 				'version'      => CMPS_VERSION,
 			)

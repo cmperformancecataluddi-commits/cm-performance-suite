@@ -1,0 +1,126 @@
+:root{
+
+	/*
+	|--------------------------------------------------------------------------
+	| Color Palette
+	|--------------------------------------------------------------------------
+	*/
+
+	--cmps-primary:#2563eb;
+	--cmps-primary-hover:#1d4ed8;
+
+	--cmps-success:#16a34a;
+	--cmps-warning:#f59e0b;
+	--cmps-danger:#dc2626;
+	--cmps-info:#0ea5e9;
+
+	--cmps-surface:#ffffff;
+	--cmps-surface-alt:#f8fafc;
+	--cmps-background:#f3f4f6;
+
+	--cmps-border:#e5e7eb;
+
+	--cmps-text:#111827;
+	--cmps-text-light:#6b7280;
+	--cmps-text-muted:#9ca3af;
+
+	/*
+	|--------------------------------------------------------------------------
+	| Typography
+	|--------------------------------------------------------------------------
+	*/
+
+	--cmps-font-family:
+		Inter,
+		-apple-system,
+		BlinkMacSystemFont,
+		"Segoe UI",
+		sans-serif;
+
+	--cmps-font-xs:12px;
+	--cmps-font-sm:14px;
+	--cmps-font-md:16px;
+	--cmps-font-lg:20px;
+	--cmps-font-xl:26px;
+	--cmps-font-2xl:34px;
+
+	--cmps-font-weight-normal:400;
+	--cmps-font-weight-medium:500;
+	--cmps-font-weight-semibold:600;
+	--cmps-font-weight-bold:700;
+
+	/*
+	|--------------------------------------------------------------------------
+	| Spacing
+	|--------------------------------------------------------------------------
+	*/
+
+	--cmps-space-1:4px;
+	--cmps-space-2:8px;
+	--cmps-space-3:12px;
+	--cmps-space-4:16px;
+	--cmps-space-5:20px;
+	--cmps-space-6:24px;
+	--cmps-space-7:32px;
+	--cmps-space-8:40px;
+	--cmps-space-9:48px;
+	--cmps-space-10:64px;
+
+	/*
+	|--------------------------------------------------------------------------
+	| Radius
+	|--------------------------------------------------------------------------
+	*/
+
+	--cmps-radius-sm:6px;
+	--cmps-radius-md:10px;
+	--cmps-radius-lg:16px;
+	--cmps-radius-xl:22px;
+
+	/*
+	|--------------------------------------------------------------------------
+	| Shadows
+	|--------------------------------------------------------------------------
+	*/
+
+	--cmps-shadow-sm:
+		0 1px 2px rgba(0,0,0,.05);
+
+	--cmps-shadow-md:
+		0 8px 20px rgba(15,23,42,.08);
+
+	--cmps-shadow-lg:
+		0 18px 40px rgba(15,23,42,.12);
+
+	/*
+	|--------------------------------------------------------------------------
+	| Transition
+	|--------------------------------------------------------------------------
+	*/
+
+	--cmps-transition-fast:.18s;
+	--cmps-transition:.28s;
+	--cmps-transition-slow:.45s;
+
+	/*
+	|--------------------------------------------------------------------------
+	| Layout
+	|--------------------------------------------------------------------------
+	*/
+
+	--cmps-sidebar-width:260px;
+
+	--cmps-container:1480px;
+
+	/*
+	|--------------------------------------------------------------------------
+	| Z Index
+	|--------------------------------------------------------------------------
+	*/
+
+	--cmps-z-dropdown:100;
+	--cmps-z-sticky:200;
+	--cmps-z-modal:1000;
+	--cmps-z-toast:1100;
+
+}

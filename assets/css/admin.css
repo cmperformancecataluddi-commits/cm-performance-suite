@@ -840,3 +840,146 @@
 	font-size:20px;
 
 }
+/*
+|--------------------------------------------------------------------------
+| Stat Card
+|--------------------------------------------------------------------------
+*/
+
+.cmps-stat-card{
+
+	display:flex;
+	align-items:center;
+	gap:18px;
+
+	padding:24px;
+
+	background:#ffffff;
+
+	border:1px solid var(--cmps-border);
+
+	border-radius:var(--cmps-radius-lg);
+
+	box-shadow:var(--cmps-shadow-sm);
+
+	transition:all .25s ease;
+
+}
+
+.cmps-stat-card:hover{
+
+	transform:translateY(-2px);
+
+	box-shadow:var(--cmps-shadow-md);
+
+}
+
+.cmps-stat-card__icon{
+
+	display:flex;
+	align-items:center;
+	justify-content:center;
+
+	width:60px;
+	height:60px;
+
+	border-radius:16px;
+
+	background:var(--cmps-surface);
+
+	font-size:28px;
+
+	flex-shrink:0;
+
+}
+
+.cmps-stat-card__content{
+
+	flex:1;
+
+}
+
+.cmps-stat-card__value{
+
+	font-size:34px;
+
+	font-weight:700;
+
+	line-height:1;
+
+	color:var(--cmps-text);
+
+}
+
+.cmps-stat-card__title{
+
+	margin-top:8px;
+
+	font-size:13px;
+
+	font-weight:600;
+
+	letter-spacing:.08em;
+
+	text-transform:uppercase;
+
+	color:var(--cmps-text-light);
+
+}
+/*
+|--------------------------------------------------------------------------
+| Status Badge
+|--------------------------------------------------------------------------
+*/
+
+.cmps-status-badge{
+
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+
+	padding:6px 12px;
+
+	border-radius:999px;
+
+	font-size:12px;
+
+	font-weight:600;
+
+	text-transform:uppercase;
+
+	letter-spacing:.05em;
+
+}
+
+.cmps-status-badge--success{
+
+	background:#dcfce7;
+
+	color:#166534;
+
+}
+
+.cmps-status-badge--warning{
+
+	background:#fef3c7;
+
+	color:#92400e;
+
+}
+
+.cmps-status-badge--danger{
+
+	background:#fee2e2;
+
+	color:#991b1b;
+
+}
+
+.cmps-status-badge--neutral{
+
+	background:#e5e7eb;
+
+	color:#374151;
+
+}
