@@ -4,18 +4,21 @@ declare(strict_types=1);
 
 namespace CMPerformanceSuite\Contracts;
 
-use CMPerformanceSuite\Modules\Performance\DTO\Analysis_Result;
+use CMPerformanceSuite\Application\DTO\Analysis_Result;
 
 /**
- * Contratto per tutti gli Analyzer della Performance Suite.
+ * Contratto per tutti gli Analyzer della CM Performance Suite.
+ *
+ * Ogni Analyzer riceve i dati raccolti dai Collector
+ * e restituisce un Analysis_Result.
  *
  * @package CMPerformanceSuite
- * @since 1.1.0-alpha.3
+ * @since 1.1.0-alpha.4
  */
 interface Analyzer_Interface
 {
 	/**
-	 * Analizza i dati raccolti dal Collector.
+	 * Analizza i dati raccolti dai Collector.
 	 *
 	 * @param array<string,mixed> $data
 	 *

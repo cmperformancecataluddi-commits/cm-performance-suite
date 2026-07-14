@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace CMPerformanceSuite\Modules\Performance\Analyzers;
 
+use CMPerformanceSuite\Application\DTO\Analysis_Result;
+use CMPerformanceSuite\Application\Engine\Threshold_Manager;
 use CMPerformanceSuite\Application\Enums\Status;
 use CMPerformanceSuite\Contracts\Analyzer_Interface;
-use CMPerformanceSuite\Application\Engine\Threshold_Manager;
 
 /**
  * Analyzer della memoria PHP.
@@ -21,11 +22,11 @@ final class Memory_Analyzer extends Abstract_Analyzer implements Analyzer_Interf
 	 *
 	 * @param array<string,mixed> $data Dati raccolti.
 	 *
-	 * @return \CMPerformanceSuite\Modules\Performance\DTO\Analysis_Result
+	 * @return Analysis_Result
 	 */
 	public function analyze(
 		array $data
-	): \CMPerformanceSuite\Modules\Performance\DTO\Analysis_Result {
+	): Analysis_Result {
 
 		$php = $data['php'] ?? array();
 

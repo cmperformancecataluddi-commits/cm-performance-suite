@@ -6,7 +6,7 @@ namespace CMPerformanceSuite\Modules\Performance\Analyzers;
 
 use CMPerformanceSuite\Application\Enums\Status;
 use CMPerformanceSuite\Contracts\Analyzer_Interface;
-use CMPerformanceSuite\Modules\Performance\DTO\Analysis_Result;
+use CMPerformanceSuite\Application\DTO\Analysis_Result;
 
 /**
  * Analyzer della configurazione WordPress.

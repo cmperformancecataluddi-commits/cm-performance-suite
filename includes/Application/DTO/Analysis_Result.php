@@ -2,17 +2,18 @@
 
 declare(strict_types=1);
 
-namespace CMPerformanceSuite\Modules\Performance\DTO;
+namespace CMPerformanceSuite\Application\DTO;
 
 use CMPerformanceSuite\Application\Enums\Status;
 
 /**
- * Rappresenta il risultato di un'analisi del Performance Engine.
+ * Rappresenta il risultato di un'analisi eseguita dal Core Engine.
  *
- * Tutti gli Analyzer devono restituire un'istanza di questa classe.
+ * Tutti gli Analyzer della CM Performance Suite devono
+ * restituire un'istanza di questa classe.
  *
  * @package CMPerformanceSuite
- * @since 1.1.0-alpha.3
+ * @since 1.1.0-alpha.4
  */
 final class Analysis_Result
 {

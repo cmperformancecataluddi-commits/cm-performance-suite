@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CMPerformanceSuite\Modules\Database\DTO;
 
-use CMPerformanceSuite\Modules\Performance\DTO\Analysis_Result;
+use CMPerformanceSuite\Application\DTO\Analysis_Result;
 
 /**
  * Report completo del Database Engine.

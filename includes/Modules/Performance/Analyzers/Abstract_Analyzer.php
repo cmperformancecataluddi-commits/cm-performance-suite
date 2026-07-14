@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CMPerformanceSuite\Modules\Performance\Analyzers;
 
 use CMPerformanceSuite\Application\Enums\Status;
-use CMPerformanceSuite\Modules\Performance\DTO\Analysis_Result;
+use CMPerformanceSuite\Application\DTO\Analysis_Result;
 
 /**
  * Classe base di tutti gli Analyzer.

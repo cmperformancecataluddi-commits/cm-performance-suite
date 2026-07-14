@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CMPerformanceSuite\Modules\Performance\Analyzers;
 
 use CMPerformanceSuite\Contracts\Analyzer_Interface;
-use CMPerformanceSuite\Modules\Performance\DTO\Analysis_Result;
+use CMPerformanceSuite\Application\DTO\Analysis_Result;
 use CMPerformanceSuite\Application\Engine\Score_Manager;
 
 /**

@@ -7,7 +7,7 @@ declare(strict_types=1);
  *
  * Variabili disponibili:
  *
- * @var \CMPerformanceSuite\Modules\Performance\DTO\Analysis_Result $result
+ @var \CMPerformanceSuite\Application\DTO\Analysis_Result
  */
 
 use CMPerformanceSuite\Application\Enums\Status;

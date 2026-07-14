@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace CMPerformanceSuite\Modules\Performance;
 
+use CMPerformanceSuite\Application\Engine\Collector_Manager;
 use CMPerformanceSuite\Application\Engine\Core_Engine;
 use CMPerformanceSuite\Contracts\Collector_Interface;
 use CMPerformanceSuite\Modules\Performance\DTO\Performance_Report;
@@ -15,7 +16,7 @@ use CMPerformanceSuite\Modules\Performance\DTO\Performance_Report;
  * del Core Engine.
  *
  * @package CMPerformanceSuite
- * @since 1.1.0-alpha.3
+ * @since 1.1.0-alpha.4
  */
 final class Performance_Service
 {
@@ -43,13 +44,13 @@ final class Performance_Service
 	 */
 	public function collect(): array
 	{
-		$data = array();
+		$manager = new Collector_Manager();
 
 		foreach ( $this->collectors as $key => $collector ) {
-			$data[ $key ] = $collector->collect();
+			$manager->add( $key, $collector );
 		}
 
-		return $data;
+		return $manager->collect();
 	}
 
 	/**

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace CMPerformanceSuite\Modules\Performance\DTO;
 
+use CMPerformanceSuite\Application\DTO\Analysis_Result;
+
 /**
  * Report completo del Performance Engine.
  *
@@ -11,7 +13,7 @@ namespace CMPerformanceSuite\Modules\Performance\DTO;
  * e le informazioni riepilogative.
  *
  * @package CMPerformanceSuite
- * @since 1.1.0-alpha.3
+ * @since 1.1.0-alpha.4
  */
 final class Performance_Report
 {

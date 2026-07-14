@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace CMPerformanceSuite\Modules\Performance\Collectors;
 
+use CMPerformanceSuite\Contracts\Collector_Interface;
+
 /**
  * Raccolta delle metriche del server.
  *
  * @package CMPerformanceSuite
  * @since 1.1.0-alpha.4
  */
-final class Server_Collector
+final class Server_Collector implements Collector_Interface
 {
 	/**
 	 * Restituisce le metriche del server.
